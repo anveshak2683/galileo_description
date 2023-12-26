@@ -1,0 +1,14 @@
+material Logo
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture Anveshak.png
+        scale 1 1
+      }
+    }
+  }
+}

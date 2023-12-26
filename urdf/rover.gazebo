@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<robot name="galileo" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <gazebo>
+        <plugin filename="libgazebo_ros_control.so" name="control"/>
+    </gazebo>
+
+    <xacro:property name="body_color" value="Gazebo/Orange"/>
+    <xacro:property name="wheel_color" value="Gazebo/Black"/>
+    <xacro:property name="bogie_color" value="Gazebo/White"/>
+    <xacro:property name="camera_color" value="Gazebo/White"/>
+    <xacro:property name="antenna_color" value="Gazebo/White"/>
+  
+    <gazebo reference="base_link">
+        <material>${body_color}</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <selfCollide>true</selfCollide>
+        <gravity>true</gravity>
+    </gazebo>
+
+    <gazebo reference="left_bogie">
+        <material>${bogie_color}</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="right_bogie">
+        <material>${bogie_color}</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="left_front_wheel">
+        <material>${wheel_color}</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="left_rear_wheel">
+        <material>${wheel_color}</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="right_rear_wheel">
+        <material>${wheel_color}</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <selfCollide>true</selfCollide>
+        <gravity>true</gravity>
+    </gazebo>
+
+    <gazebo reference="right_front_wheel">
+        <material>${wheel_color}</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="camera_link">
+        <material>${camera_color}</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="antenna">
+        <material>${antenna_color}</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo>
+        <plugin name="galileo_drive_controller" filename='libgazebo_ros_skid_steer_drive.so'>
+            <updateRate>20</updateRate>
+            <robotNamespace></robotNamespace>
+            
+            <leftFrontJoint>left_front_wheel_joint</leftFrontJoint>
+            <rightFrontJoint>right_front_wheel_joint</rightFrontJoint>
+            <leftRearJoint>left_rear_wheel_joint</leftRearJoint>
+            <rightRearJoint>right_rear_wheel_joint</rightRearJoint>
+            
+            <wheelSeperation>0.54</wheelSeperation>
+            <wheelDiameter>0.12</wheelDiameter>
+            <torque>30</torque>
+            
+            <topicName>cmd_vel</topicName>
+            <robotBaseFrame>base_footprint</robotBaseFrame>
+            
+            <!--odometryTopic>odom</odometryTopic>
+            <wheelAcceleration>1.0</wheelAcceleration>
+            <odometryFrame>odom</odometryFrame>
+            
+
+            <publishOdom>true</publishOdom>
+            <publishWheelTf>true</publishWheelTf>
+            <publishWheelJointState>true</publishWheelJointState>
+
+            <legacyMode>false</legacyMode>
+            <alwaysOn>true</alwaysOn-->
+        </plugin>
+    </gazebo>
+
+    <gazebo reference="camera_link">
+        <sensor type="camera" name="camera">
+            <update_rate>30.0</update_rate>
+            <visualize>true</visualize>
+            <camera>
+                <horizontal_fov>1.089</horizontal_fov>
+                <image>
+                    <width>1280</width>
+                    <height>720</height>
+                    <format>R8G8B8</format>
+                </image>
+                <clip>
+                    <near>0.05</near>
+                    <far>20</far>
+                </clip>
+            </camera>
+            <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+                <robotNamespace></robotNamespace>
+                <alwaysOn>true</alwaysOn>
+                <updateRate>30.0</updateRate>
+                <imageTopicName>intel/image_raw</imageTopicName>
+                <cameraInfoTopicName>intel/camera_info</cameraInfoTopicName>
+                <frameName>camera_link</frameName>
+            </plugin>
+        </sensor>
+    </gazebo>
+    
+</robot>
