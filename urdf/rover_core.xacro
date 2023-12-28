@@ -46,25 +46,19 @@
       <visual>
         <pose>0.125 0 0 0 0 0</pose>
             <geometry>
-                <box size="0.0001 0.15 0.15"/>
+                <box size="0.0001 0.35 0.35"/>
             </geometry>
-            <material>
-	    <script>
-            	<uri>model://anveshak_logo/scripts</uri>
-            	<uri>model://anveshak_logo/textures</uri>
-            	<name>Logo</name>
-	    </script>    
+            <material name="logo">
+	    	<texture filename="package://galileo_description/meshes/anveshak_logo/Anveshak.png"/>  
             </material>            
-        </visual>
-      </link>
+      </visual>
+    </link>
       
       <joint name="logo_joint" type="fixed">
-        <origin xyz="0.0 0.0 0.27" rpy="0.0 0.0 0.0"/>
+        <origin xyz="0.0 0.0 0.15" rpy="0.0 ${pi/2} 0.0"/>
         <parent link="base_link"/>
         <child link="anveshak_logo"/>
     </joint>
-      
-      
 
     <link name="left_bogie">
         <inertial>
@@ -92,7 +86,7 @@
         <child link="left_bogie"/>
         <origin xyz="0 0.24 0.05" rpy="0 0 0"/>
         <axis xyz="0 1 0"/>
-        <limit effort="30" velocity="1.0" lower="-0.1" upper="0.15" />
+        <limit effort="30" velocity="1.0" lower="-0.0" upper="0.15" />
     </joint>
 
     <link name="right_bogie">
@@ -121,7 +115,7 @@
         <child link="right_bogie"/>
         <origin xyz="0 -0.24 0.05" rpy="0 0 0"/>
         <axis xyz="0 1 0"/>
-        <limit effort="30" velocity="1.0" lower="-0.1" upper="0.15" />
+        <limit effort="30" velocity="1.0" lower="-0.0" upper="0.15" />
     </joint>
 
     <link name="left_front_wheel">

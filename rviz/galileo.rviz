@@ -66,6 +66,11 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        anveshak_logo:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         base_footprint:
           Alpha: 1
           Show Axes: false
@@ -126,9 +131,11 @@ Visualization Manager:
       Filter (whitelist): ""
       Frame Timeout: 15
       Frames:
-        All Enabled: true
+        All Enabled: false
         antenna:
           Value: true
+        anveshak_logo:
+          Value: false
         base_footprint:
           Value: true
         base_link:
@@ -159,6 +166,8 @@ Visualization Manager:
         base_footprint:
           base_link:
             antenna:
+              {}
+            anveshak_logo:
               {}
             camera_link:
               camera_link_optical:
@@ -203,7 +212,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 3.156222343444824
+      Distance: 2.4762697219848633
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -219,9 +228,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.26539844274520874
+      Pitch: 0.6353985071182251
       Target Frame: <Fixed Frame>
-      Yaw: 1.0803992748260498
+      Yaw: 2.0353944301605225
     Saved: ~
 Window Geometry:
   Displays:
