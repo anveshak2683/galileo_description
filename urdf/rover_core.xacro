@@ -12,6 +12,14 @@
     <material name="white">
         <color rgba="1 1 1 1"/>
     </material>
+    
+    <link name="odom"></link>
+
+    <joint name="odom_joint" type="fixed">
+        <origin xyz="0.0 0.0 0.27" rpy="0.0 0.0 0.0"/>
+        <parent link="odom"/>
+        <child link="base_footprint"/>
+    </joint>
 
     <link name="base_footprint"></link>
 
