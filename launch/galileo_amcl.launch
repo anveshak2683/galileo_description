@@ -12,12 +12,13 @@
     <param name="use_map_topic" value="$(arg use_map_topic)"/>
     
     <!-- Publish scans from best pose at a max of 10 Hz -->
-    <param name="odom_model_type" value="diff-corrected"/>
+    <param name="odom_model_type" value="diff"/>
     <param name="odom_alpha1" value="0.005"/>
     <param name="odom_alpha2" value="0.005"/>
     
     <!-- translation variance, m -->
     <param name="odom_alpha3" value="0.01"/>
+    <param name="odom_alpha4" value="0.005"/>
     <param name="odom_alpha4" value="0.005"/>
     <param name="gui_publish_rate" value="10.0"/>
     <param name="laser_max_beams" value="60"/>
