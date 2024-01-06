@@ -116,14 +116,14 @@
       		<publishTf>1</publishTf>
       		<publishWheelJointState>0</publishWheelJointState>
       		<alwaysOn>1</alwaysOn>
-      		<updateRate>100.0</updateRate>
+      		<updateRate>200.0</updateRate>
       		<leftJoint>left_rear_wheel_joint</leftJoint>
       		<rightJoint>right_rear_wheel_joint</rightJoint>
       		<wheelSeparation>0.54</wheelSeparation>
-      		<wheelDiameter>0.1</wheelDiameter>
+      		<wheelDiameter>0.24</wheelDiameter>
       		<broadcastTF>1</broadcastTF>
       		<wheelTorque>20</wheelTorque>
-      		<wheelAcceleration>1.0</wheelAcceleration>
+      		<wheelAcceleration>2.0</wheelAcceleration>
       		<commandTopic>galileo/cmd_vel</commandTopic>
       		<odometryFrame>odom</odometryFrame>
       		<odometryTopic>odom</odometryTopic>
@@ -171,7 +171,7 @@
         <sensor type="ray" name="laser">
             <pose>0 0 0 0 0 0</pose>
             <visualize>true</visualize>
-            <update_rate>40</update_rate>
+            <update_rate>100</update_rate>
             <ray>
                 <scan>
                     <horizontal>
